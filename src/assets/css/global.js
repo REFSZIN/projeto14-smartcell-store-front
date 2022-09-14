@@ -116,4 +116,21 @@ button:hover{
     filter: brightness(1.1);
     box-shadow: 1px 1px 2px 1px #FFFF;
 }
+
+*{
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	--font-all: 'Poppins', sans-serif;
+	--color-bg: #181a21;
+	--color-light-grey: #353840;
+	--color-dark-grey: #20222A;
+	--color-menu: #1E1F24;
+	--color-text-grey: #353840;
+}
+
+body{
+	background-color: var(--color-bg);
+	font-family: var(--font-all);
+	color: #ffffff;
+}
 `
