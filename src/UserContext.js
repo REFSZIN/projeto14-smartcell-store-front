@@ -17,7 +17,7 @@ export function UserProvider (props){
     const [lock,setLock] = useState(1);
     const URL ="http://localhost:5000";
 
-    const localmenteLogado = () => {
+    const isLogged = () => {
         if (performance.navigation.type === performance.navigation.TYPE_RELOAD || localStorage.length > 0) {
             setLoad(1);
             axios.post(`${URL}/auth/sign-in`,
@@ -103,7 +103,7 @@ export function UserProvider (props){
             value={{ 
                 token, setToken, data, setData, email, setEmail, name, setName,
                 password,setPassword, confirmPassword, setConfirmPassword, load, setLoad, 
-                localmenteLogado , postSign,postSignUp, setLock,lock,getCells,cells
+                isLogged, postSign,postSignUp, setLock,lock,getCells,cells
             }}>
             {props.children}
         </UserContext.Provider>

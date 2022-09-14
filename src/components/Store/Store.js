@@ -1,23 +1,33 @@
-import "../Login/style.js";
+import React from 'react';
+import {Main, Products, Product, Image, AddCart, ProductTitle, Price, Description} from "./style.js";
+import Header from '../Header/Header.js';
 import UserContext from "../../UserContext";
 import { useContext,useEffect} from "react";
-import React from 'react'
-import {Main} from "../Login/style.js";
-import {Link} from "react-router-dom";
+import {IoCartOutline} from "react-icons/io5";
+import teste from "../../assets/images/teste.webp";
 
 export default function Store(){
-    const {setLoad,localmenteLogado,data,cells,getCells} = useContext(UserContext);
+    const {setLoad,isLogged,data,cells,getCells} = useContext(UserContext);
 
     useEffect(() => {
         if( localStorage.length > 0){
-            localmenteLogado();
+            isLogged();
         }
         setLoad(0);
     }, []);
 
     return(
         <Main>
-            
+            <Header/>
+            <Products>
+                <Product>
+                    <Image src={teste}/>
+                    <ProductTitle>Iphone 13</ProductTitle>
+                    <Description>256GB</Description>
+                    <Price>R$3000,00</Price>
+                    <AddCart><IoCartOutline/>Adicionar ao carrinho</AddCart>
+                </Product>
+            </Products>
         </Main>
     );
 };
