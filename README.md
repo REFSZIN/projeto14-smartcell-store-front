@@ -1,20 +1,12 @@
 # * Projetâ0 - API SMART 📱 STORE *
- Back-end !🙂
+ Front-end ! 🙂
 
 # Bibliotecas
 
-- [express](https://www.npmjs.com/package/express)
-- [cors](https://www.npmjs.com/package/cors)
-- [jwt-simple](https://www.npmjs.com/package/jwt-simple)
-- [chalk](https://www.npmjs.com/package/chalk)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [dayjs](https://www.npmjs.com/package/dayjs)
-- [mongodb](https://www.npmjs.com/package/mongodb)
-- [joi](https://www.npmjs.com/package/joi)
-- [jwt-simple](https://www.npmjs.com/package/jwt-simple)
-- [bcrypt](https://www.npmjs.com/package/bcrypt)
-- [uuid](https://www.npmjs.com/package/uuid)
-- [nodemon](https://www.npmjs.com/package/nodemon)
+- [react-loader-spinner](https://www.npmjs.com/package/react-loader-spinner)
+- [dayjs](https://day.js.org/)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [styled-components](https://styled-components.com/)
 
 
 
