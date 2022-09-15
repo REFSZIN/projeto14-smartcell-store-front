@@ -12,9 +12,9 @@ export default createGlobalStyle`
 
 	font-family: 'Lexend Deca', sans-serif;
 	font-family: 'Playball', cursive;
-  font-family: 'Righteous', cursive;
+  	font-family: 'Righteous', cursive;
 	font-family: 'Roboto', sans-serif; 
-  font-family: 'Recursive', sans-serif;
+  	font-family: 'Recursive', sans-serif;
 	font-family: 'Saira Stencil One', cursive;
 
 	mobileS: '320px',

@@ -8,7 +8,7 @@ import Store from "./components/Store/Store.js";
 import SignUp from "./components/SignUp/SignUp.js";
 import Cart from "./components/Cart/Cart.js";
 import CheckOut from "./components/CheckOut/CheckOut.js";
-import PrivatePage from "./components/PrivatePage.js";
+import PrivatePage from "./components/PrivatePage/PrivatePage.js";
 
 export default function App (){
     return (
@@ -19,12 +19,10 @@ export default function App (){
                     <Routes>
                         <Route path="/" element={<Store />}/>
                         <Route path="/login" element={<Login />}/>
-                        <Route path="/cadatro" element={<SignUp />}/>
+                        <Route path="/cadastro" element={<SignUp />}/>
                         <Route path="/carrinho" element={<Cart />}/>
                             <Route path="/checkout" element={
-                                <PrivatePage>
                                     <CheckOut/>
-                                </PrivatePage>
                             }/>
                     </Routes> 
                 </BrowserRouter>
@@ -32,3 +30,5 @@ export default function App (){
         </UserContext.Provider>
     );
 };
+
+//COLOCAR PRIVATE PAGE
