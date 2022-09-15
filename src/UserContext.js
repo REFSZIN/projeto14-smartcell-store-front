@@ -16,7 +16,6 @@ export function UserProvider (props){
     const [loader,setLoader] = useState(0);
     const [products, setProducts] = useState([]);
     const [mycart, setMyCart] = useState([]);
-    const [history, setHistory] = useState([]);
     const [checkout, setCheckout] = useState([]);
     const [cep, setCep] = useState('');
     const [numero, setNumero] = useState('');
@@ -95,7 +94,7 @@ export function UserProvider (props){
             headers: { Authorization: `Bearer ${data.token}`}
         }
         try {
-            const req = axios.get(`${URL}/cells`, headers);
+            const req = axios.get(`${URL}/products/`, headers);
             req.then(res => {
                 setProducts(res.data)
             })
@@ -131,7 +130,7 @@ export function UserProvider (props){
             headers: { Authorization: `Bearer ${data.token}`}
         }
         try {
-            const req = axios.get(`${URL}/mycart`, headers);
+            const req = axios.post(`${URL}/mycart`, headers);
             req.then(res => {
                 return res;
             })
@@ -149,7 +148,7 @@ export function UserProvider (props){
             headers: { Authorization: `Bearer ${data.token}`}
         }
         try {
-            const req = axios.get(`${URL}/mycart/${props}`, headers);
+            const req = axios.delete(`${URL}/mycart/${props}`, headers);
             req.then(res => {
                 return res;
             })
@@ -167,7 +166,7 @@ export function UserProvider (props){
             headers: { Authorization: `Bearer ${data.token}`}
         }
         try {
-            const req = axios.post(`${URL}/checkout`, headers);
+            const req = axios.get(`${URL}/checkout`, headers);
             req.then(res => {
                 setCheckout(res.data);
             })
@@ -204,24 +203,6 @@ export function UserProvider (props){
         }
     }
 
-    const getHistory = () => async () => {
-
-        const headers = {
-            headers: { Authorization: `Bearer ${data.token}`}
-        }
-        try {
-            const req = axios.post(`${URL}/checkout`, headers);
-            req.then(res => {
-                setHistory(res.data);
-            })
-            .catch(err => {
-                alert(err);
-            });
-        } 
-        catch (error) {
-            throw new Error(error);
-        }
-    }
 
     return (
         <UserContext.Provider 
@@ -229,8 +210,8 @@ export function UserProvider (props){
                 token, setToken, data, setData, email, setEmail, name, setName,
                 password, setPassword, confirmPassword, setConfirmPassword, load, setLoad, 
                 isLogged, postSign, postSignUp, products, setProducts, mycart, setMyCart,
-                postInMyCart, deleteMyCart, getMyCart, getHistory, postCheckOut, getCheckOut, history,
-                setHistory, getProducts, checkout, setCheckout, loader, setLoader, cep, setCep, numero, setNumero,
+                postInMyCart, deleteMyCart, getMyCart, postCheckOut, getCheckOut,
+                getProducts, checkout, setCheckout, loader, setLoader, cep, setCep, numero, setNumero,
                 endereço, setEndereço, paymethod, setPaymethod
             }}>
             {props.children}
