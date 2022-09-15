@@ -8,31 +8,6 @@ import teste from "../../assets/images/teste.webp";
 import {IoTrashOutline} from "react-icons/io5";
 
 export default function MyProducts(){
-    const getProducts = [
-        {
-            title: 'Iphone 13',
-            price: `5000.00`,
-            description: '256GB',
-            image: {teste}
-        },
-        {
-            title: 'Iphone 13',
-            price: `5000.00`,
-            description: '256GB',
-            image: {teste}
-        },{
-            title: 'Iphone 13',
-            price: `5000.00`,
-            description: '256GB',
-            image: {teste}
-        },
-        {
-            title: 'Iphone 13',
-            price: `5000.00`,
-            description: '256GB',
-            image: {teste}
-        }
-    ];
 
     return(
         <Main>

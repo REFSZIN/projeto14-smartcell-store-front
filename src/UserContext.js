@@ -18,10 +18,10 @@ export function UserProvider (props){
     const [mycart, setMyCart] = useState([]);
     const [checkout, setCheckout] = useState([]);
     const [cep, setCep] = useState('');
-    const [numero, setNumero] = useState('');
-    const [endereço, setEndereço] = useState('');
-    const [paymethod, setPaymethod] = useState('');
-    const URL ="https://smartcell-store-back.herokuapp.com";
+    const [number, setNumber] = useState('');
+    const [address, setAdress] = useState('');
+    const [payMethod, setPayMethod] = useState('');
+    const URL = "https://smartcell-store-back.herokuapp.com";
 
     const isLogged  = () => {
         if (performance.navigation.type === performance.navigation.TYPE_RELOAD || localStorage.length > 0) {
@@ -125,12 +125,13 @@ export function UserProvider (props){
         }
     }
 
-    const postInMyCart = async () => {
+    const postInMyCart = async (props) => {
+        const product = props.product.id
         const headers = {
             headers: { Authorization: `Bearer ${data.token}`}
         }
         try {
-            const req = axios.post(`${URL}/mycart`, headers);
+            const req = axios.post(`${URL}/mycart`, product, headers);
             req.then(res => {
                 return res;
             })
@@ -211,8 +212,8 @@ export function UserProvider (props){
                 password, setPassword, confirmPassword, setConfirmPassword, load, setLoad, 
                 isLogged, postSign, postSignUp, products, setProducts, mycart, setMyCart,
                 postInMyCart, deleteMyCart, getMyCart, postCheckOut, getCheckOut,
-                getProducts, checkout, setCheckout, loader, setLoader, cep, setCep, numero, setNumero,
-                endereço, setEndereço, paymethod, setPaymethod
+                getProducts, checkout, setCheckout, loader, setLoader, cep, setCep, number, setNumber,
+                address, setAdress, payMethod, setPayMethod
             }}>
             {props.children}
         </UserContext.Provider>)}
