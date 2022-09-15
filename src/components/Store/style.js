@@ -79,4 +79,4 @@ const Price = styled.h4`
     margin-top: 20px;
 `;
 
-export {Main, Products, Product, Image, ProductTitle, Price, AddCart, Description}
+export {Main, Products, Product, Image, ProductTitle, Price, AddCart, Description};

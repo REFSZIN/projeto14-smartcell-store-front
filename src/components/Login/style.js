@@ -18,35 +18,46 @@ const Form = styled.form`
     align-items: center;
     width: 100%;
     padding: 24px;
-`
+`;
 
 const Input = styled.input`
     width: 90vw;
     height: 58px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    border: 1px solid #ffffff;
-    font-size: 20px;
-    color: #000000;
-    padding: 15px;
+    background-color: var(--color-dark-grey);
+    border-radius: 30px;
+    border: 1px solid var(--color-dark-grey);
+    font-size: 16px;
+    color: #ffffff;
+    padding: 20px;
     font-weight: 400;
     &::placeholder{
-        color: #000000;
+        color: var(--color-light-grey);
+        font-size: 14px;
     }
-    font-family: var(--font-body);
     margin-bottom: 13px;
-`
+`;
 
 const Button = styled.button`
     width: 90vw;
     height: 58px;
-    background-color: var(--color-button);
-    border: 1px solid var(--color-button);
-    border-radius: 5px;
+    background-color: #393939;
+    border: 1px solid var(--color-light-grey);
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 400;
     color: #ffffff;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: var(--font-body);
-`
+`;
 
-export {Input, Main, Form, Button};
+const Title = styled.h4`
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 600;
+`;
+
+const Subtitle = styled.h4`
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 200;
+`;
+
+export {Input, Main, Form, Button, Title, Subtitle};

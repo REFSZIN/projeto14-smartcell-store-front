@@ -5,6 +5,7 @@ import UserContext from "../../UserContext";
 import { useContext,useEffect} from "react";
 import {IoCartOutline} from "react-icons/io5";
 import teste from "../../assets/images/teste.webp";
+import Footer from "../Footer/Footer.js";
 
 export default function Store(){
     const {setLoad,isLogged,data,cells,getCells} = useContext(UserContext);
@@ -28,6 +29,7 @@ export default function Store(){
                     <AddCart><IoCartOutline/>Adicionar ao carrinho</AddCart>
                 </Product>
             </Products>
+            <Footer/>
         </Main>
     );
 };
