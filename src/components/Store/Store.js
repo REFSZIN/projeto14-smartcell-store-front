@@ -7,7 +7,7 @@ import {IoCartOutline} from "react-icons/io5";
 import teste from "../../assets/images/teste.webp";
 
 export default function Store(){
-    const {setLoad,isLogged,data,cells,getCells} = useContext(UserContext);
+    const {setLoad,isLogged,data,products,getProducts} = useContext(UserContext);
 
     useEffect(() => {
         if( localStorage.length > 0){
