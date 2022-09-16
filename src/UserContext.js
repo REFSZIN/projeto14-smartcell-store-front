@@ -7,7 +7,7 @@ export default UserContext;
 
 export function UserProvider (props){
     const [token, setToken] = useState(null);
-    const [data, setData] = useState(JSON.parse(localStorage.getItem("user")));
+    const [data, setData] = useState(localStorage.getItem("user"));
     const [email,setEmail] = useState('');
     const [name,setName] = useState('');
     const [password,setPassword] = useState('');
@@ -18,12 +18,19 @@ export function UserProvider (props){
     const [mycart, setMyCart] = useState([]);
     const [checkout, setCheckout] = useState([]);
     const [cep, setCep] = useState('');
-    const [numero, setNumero] = useState('');
-    const [endereço, setEndereço] = useState('');
-    const [paymethod, setPaymethod] = useState('');
-    const URL ="https://smartcell-store-back.herokuapp.com";
+    const [number, setNumber] = useState('');
+    const [address, setAdress] = useState('');
+    const [payMethod, setPayMethod] = useState('');
+    const URL = "https://smartcell-store-back.herokuapp.com";
+    let userToken = '';
+    let userEmail = '';
+    const headers = {
+        headers: {
+            Authorization: `Bearer ${data}`
+        },
+    };
 
-    const isLogged  = () => {
+function isLogged() {
         if (performance.navigation.type === performance.navigation.TYPE_RELOAD || localStorage.length > 0) {
             setLoad(1);
             axios.post(`${URL}/auth/sign-in`,
@@ -89,28 +96,7 @@ export function UserProvider (props){
         }
     }
 
-    const getProducts = async () => {
-        const headers = {
-            headers: { Authorization: `Bearer ${data.token}`}
-        }
-        try {
-            const req = axios.get(`${URL}/products/`, headers);
-            req.then(res => {
-                setProducts(res.data)
-            })
-            .catch(err => {
-                alert(err.data);
-            });
-        } 
-        catch (error) {
-            throw new Error(error);
-        }
-    }
-
     const getMyCart = async () => {
-        const headers = {
-            headers: { Authorization: `Bearer ${data.token}`}
-        }
         try {
             const req = axios.get(`${URL}/mycart`, headers);
             req.then(res => {
@@ -125,12 +111,10 @@ export function UserProvider (props){
         }
     }
 
-    const postInMyCart = async () => {
-        const headers = {
-            headers: { Authorization: `Bearer ${data.token}`}
-        }
+    async function postInMyCart(product) {
+        const id = product._id;
         try {
-            const req = axios.post(`${URL}/mycart`, headers);
+            const req = axios.post(`${URL}/mycart`, id, headers);
             req.then(res => {
                 return res;
             })
@@ -144,9 +128,6 @@ export function UserProvider (props){
     }
 
     const deleteMyCart = async (props) => {
-        const headers = {
-            headers: { Authorization: `Bearer ${data.token}`}
-        }
         try {
             const req = axios.delete(`${URL}/mycart/${props}`, headers);
             req.then(res => {
@@ -162,9 +143,6 @@ export function UserProvider (props){
     }
 
     const getCheckOut = async () => {
-        const headers = {
-            headers: { Authorization: `Bearer ${data.token}`}
-        }
         try {
             const req = axios.get(`${URL}/checkout`, headers);
             req.then(res => {
@@ -180,9 +158,6 @@ export function UserProvider (props){
     }
 
     const postCheckOut = async () => {
-        const headers = {
-            headers: { Authorization: `Bearer ${data.token}`}
-        }
         const body = {
             cep: name,
             numero: email,
@@ -210,9 +185,9 @@ export function UserProvider (props){
                 token, setToken, data, setData, email, setEmail, name, setName,
                 password, setPassword, confirmPassword, setConfirmPassword, load, setLoad, 
                 isLogged, postSign, postSignUp, products, setProducts, mycart, setMyCart,
-                postInMyCart, deleteMyCart, getMyCart, postCheckOut, getCheckOut,
-                getProducts, checkout, setCheckout, loader, setLoader, cep, setCep, numero, setNumero,
-                endereço, setEndereço, paymethod, setPaymethod
+                postInMyCart, deleteMyCart, getMyCart, postCheckOut, getCheckOut, 
+                checkout, setCheckout, loader, setLoader, cep, setCep, number, setNumber,
+                address, setAdress, payMethod, setPayMethod, headers, userEmail, userToken
             }}>
             {props.children}
         </UserContext.Provider>)}

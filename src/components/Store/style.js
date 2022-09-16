@@ -45,7 +45,7 @@ const Image = styled.img`
 const ProductTitle = styled.h4`
     color: #ffffff;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     margin-top: 20px;
 `;
 
@@ -79,4 +79,9 @@ const Price = styled.h4`
     margin-top: 20px;
 `;
 
-export {Main, Products, Product, Image, ProductTitle, Price, AddCart, Description};
+const Loading = styled.img`
+    width: 80px;
+    height: 80px;
+`
+
+export {Main, Products, Product, Image, ProductTitle, Price, AddCart, Description, Loading};

@@ -1,18 +1,38 @@
 import "./style.js";
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Form, Input, Button, Main, Title, Subtitle} from "./style.js";
 import UserContext from "../../UserContext.js";
 import {useContext} from "react";
 import {useNavigate, Link} from "react-router-dom";
 import Header from '../Header/Header.js';
 import Footer from "../Footer/Footer.js";
+import axios from "axios";
 
 export default function Login(){
     const {name, setName, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword} = useContext(UserContext);
+    const navigate = useNavigate();
+    const signData = {
+        name,
+        email,
+        password,
+        confirmPassword
+    };
 
     function handleForm(e){
         e.preventDefault();
-    };
+        const promise = axios.post('http://localhost:4000/auth/sign-up', signData);
+        promise.then(res => {
+            navigate('/login');
+            setName('');
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+        });
+        promise.catch(res => {
+            alert('Faça o cadastro novamente');
+        });
+    }
+
 
     return(
         <Main>
