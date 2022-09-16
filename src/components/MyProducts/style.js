@@ -62,7 +62,27 @@ const Main = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Button = styled.button`
+    width: 50vw;
+    height: 58px;
+    background-color: #393939;
+    border: 1px solid var(--color-light-grey);
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 50px;
+`;
+
+const MainTitle = styled.h5`
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 200;
 `;
 
 
-export {Product, Image, Title, Description, Price, AlignItems, Icon, Main};
+export {Product, Image, Title, Description, Price, AlignItems, Icon, Main, Button, MainTitle};
