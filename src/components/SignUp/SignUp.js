@@ -20,7 +20,7 @@ export default function Login(){
 
     function handleForm(e){
         e.preventDefault();
-        const promise = axios.post('http://localhost:4000/auth/sign-up', signData);
+        const promise = axios.post('https://smartcell-store-back.herokuapp.com/auth/sign-up', signData);
         promise.then(res => {
             navigate('/login');
             setName('');

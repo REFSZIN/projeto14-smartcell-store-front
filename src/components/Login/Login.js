@@ -9,22 +9,22 @@ import Footer from "../Footer/Footer.js";
 import axios from "axios";
 
 export default function Login(){
-    let {email, setEmail, password, setPassword, token, setToken, userEmail, userToken} = useContext(UserContext);
+    let {email, setEmail, password, setPassword, token, setToken, userToken} = useContext(UserContext);
     const navigate = useNavigate();
     
-    const loginData = {
+    const body = 
+    {
         email,
         password
-    };
+    }
 
     function handleForm(e){
         e.preventDefault();
-        const promise = axios.post('http://localhost:4000/auth/sign-in', loginData);
+        const promise = axios.post('https://smartcell-store-back.herokuapp.com/auth/sign-in', body);
         promise.then(res => {
-            localStorage.setItem('user', res.data.token);
+            localStorage.setItem('token', res.data.token);
             localStorage.setItem('email', email);
-            userEmail = localStorage.getItem('email');
-            userToken = localStorage.getItem('user');
+            userToken = localStorage.getItem('token');
             setToken(userToken);
             navigate('/');
             setEmail('');

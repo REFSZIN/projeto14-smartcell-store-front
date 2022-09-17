@@ -1,12 +1,14 @@
 import "./style.js";
 import React from 'react'
-import {Main, Title, SubTitle, Price, Button, Titles, Return, Form, Input, Span, Select, MainButton} from "./style.js";
+import {Main, Title, SubTitle,  Button, Titles, Return, Form, Input, Span, Select, MainButton} from "./style.js";
 import {Link} from "react-router-dom";
 import Header from '../Header/Header.js';
 import MyProducts from "../MyProducts/MyProducts.js";
 import {IoArrowBack} from "react-icons/io5";
 
 export default function CheckOut(){
+
+
     return(
         <>
         <Header/>

@@ -3,27 +3,24 @@ import React, {useEffect} from 'react'
 import {Product, Image, Title, Description, Price, AlignItems, Icon, Main, Button, MainTitle} from "./style.js";
 import UserContext from "../../UserContext";
 import {useContext} from "react";
-import {useNavigate, Link} from "react-router-dom";
+import { Link} from "react-router-dom";
 import {IoTrashOutline} from "react-icons/io5";
 import axios from "axios";
 
 export default function MyProducts(){
-    const {data, myCart, setMyCart, products, setProducts} = useContext(UserContext);
-    const navigate = useNavigate();
+    const {data, deleteMyCart, products, setProducts} = useContext(UserContext);
     let cart = [];
     let userCart = [];
-    let bolinha = [];
     
     useEffect(() =>{
-        const prom = axios.get('http://localhost:4000/products');
+        const prom = axios.get('https://smartcell-store-back.herokuapp.com/products');
         prom.then(resp => {
             setProducts(resp.data)
         });
 
-    }, []);
+    }, [setProducts]);
 
     if(!data){
-        console.log('não tem usuario');
         cart = JSON.parse(localStorage.getItem('products'));
         cart.map((item, i) => {
             for(let j=0; j<products.length; j++){
@@ -33,24 +30,22 @@ export default function MyProducts(){
                         products[j]
                     ];
                 }
-            }
-        });
+            }return userCart;
+        })
+        
     };
 
     if(data){
-        console.log('tem usuario');
         const email = localStorage.getItem('email');
         const body = {
-            email: email
+            email
         };
 
         const promise = axios.get('https://smartcell-store-back.herokuapp.com/mycart', body);
         promise.then(res => {
             cart = (res.data);
-            console.log(cart);
-            console.log(products);
             cart.map(item => {
-                for(let j=0; j<products.length; j++){
+                for(let j=0; j<item.length; j++){
                     
                     if(item._id === products[j]._id){
                         userCart = [
@@ -58,21 +53,25 @@ export default function MyProducts(){
                             products[j]
                         ];
                     }
-                }
+                } return userCart;
             })
             console.log(userCart)
         });
     };
 
-    function deleteProduct(){
-        console.log('tem que deletar');
-    }
+    function deleteProduct(props){
+        let result = window.confirm('Tem certeza de que deseja excluir?');
+        let message = result ?"DELETADO":'MANTIDO';
+        alert(message);
+        if(message === "DELETADO"){
+            deleteMyCart(props);
+    }}
 
     return(
         <Main>
             {userCart.length !== 0 ? (
                 userCart.map((product, i) => (
-                    <Product index={i}>
+                    <Product key={i}>
                     <Image src={product.photo}></Image>
                     <AlignItems>
                         <Title>{product.title}</Title>
@@ -80,7 +79,7 @@ export default function MyProducts(){
                         <Price>{product.price}</Price>
                     </AlignItems>
                     <Icon>
-                        <IoTrashOutline onClick={() => deleteProduct(product)}/>
+                        <IoTrashOutline id={product._id} onClick={() => deleteProduct(product._id)}/>
                     </Icon>
                 </Product>
                 ))

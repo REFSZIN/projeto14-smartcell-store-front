@@ -64,6 +64,12 @@ const Main = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    &::-webkit-scrollbar{
+        display: none;
+    }
 `;
 
 const Button = styled.button`
