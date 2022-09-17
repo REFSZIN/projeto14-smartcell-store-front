@@ -20,6 +20,11 @@ const Products = styled.div`
     align-items: center;
     margin-top: 80px;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    &::-webkit-scrollbar{
+        display: none;
+    }
 `;
 
 const Product = styled.div`

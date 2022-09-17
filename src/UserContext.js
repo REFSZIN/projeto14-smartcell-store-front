@@ -15,7 +15,7 @@ export function UserProvider (props){
     const [load,setLoad] = useState(0);
     const [loader,setLoader] = useState(0);
     const [products, setProducts] = useState([]);
-    const [mycart, setMyCart] = useState([]);
+    const [myCart, setMyCart] = useState([]);
     const [checkout, setCheckout] = useState([]);
     const [cep, setCep] = useState('');
     const [number, setNumber] = useState('');
@@ -184,7 +184,7 @@ function isLogged() {
             value={{ 
                 token, setToken, data, setData, email, setEmail, name, setName,
                 password, setPassword, confirmPassword, setConfirmPassword, load, setLoad, 
-                isLogged, postSign, postSignUp, products, setProducts, mycart, setMyCart,
+                isLogged, postSign, postSignUp, products, setProducts, myCart, setMyCart,
                 postInMyCart, deleteMyCart, getMyCart, postCheckOut, getCheckOut, 
                 checkout, setCheckout, loader, setLoader, cep, setCep, number, setNumber,
                 address, setAdress, payMethod, setPayMethod, headers, userEmail, userToken

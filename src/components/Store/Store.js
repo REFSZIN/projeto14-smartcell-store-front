@@ -15,11 +15,11 @@ export default function Store(){
     let cart = [];
 
     useEffect(() => {
-        const promise = axios.get('http://localhost:4000/products');
+        const promise = axios.get('https://smartcell-store-back.herokuapp.com/products');
         promise.then(res => {
             setProducts(res.data);
         });
-    }, []);
+    }, [setProducts]);
 
     function productPage(product){
         navigate(`/${product._id}`);
@@ -27,15 +27,15 @@ export default function Store(){
 
     async function hasUser(product){
         const productId = product._id;
-        const user = localStorage.getItem('email');
+        const email = localStorage.getItem('email');
         const purchase = {
             price: product.price,
             product: productId,
-            user
+            email
         }
 
         if(data){
-            await axios.post('http://localhost:4000/carts', purchase, headers);
+            await axios.post('https://smartcell-store-back.herokuapp.com/carts', purchase, headers);
             return alert('Produto adicionado ao carrinho!');
         }
 
@@ -66,7 +66,7 @@ export default function Store(){
                     <Loading src={loading}/>
                 ) : (
                     products.map((product, index) => (
-                        <Product index={index}>
+                        <Product  key={index}>
                             <Image onClick={() => productPage(product)} src={product.photo}/>
                             <ProductTitle>{product.title}</ProductTitle>
                             <Description>{product.color} - {product.capacity}</Description>
