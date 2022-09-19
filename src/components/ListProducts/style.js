@@ -105,7 +105,7 @@ const AddCart = styled.button`
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    padding: 0 50px;
+    padding: 0 40px;
 `;
 
 const Price = styled.h4`

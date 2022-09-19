@@ -1,6 +1,6 @@
 import "./style.js";
 import React, {useEffect} from 'react'
-import {Main, Title, TotalFooter, AlignItems, SubTitle, Price, Button,Product,Image,Description,Icon,MainTitle} from "./style.js";
+import {Main, Title, TotalFooter, AlignItems, SubTitle, Price, Button, Product, Image, Description, Icon, MainTitle, FirstTitle, Container} from "./style.js";
 import UserContext from "../../UserContext";
 import {useContext} from "react";
 import {useNavigate, Link} from "react-router-dom";
@@ -32,10 +32,10 @@ export default function Cart(){
     };
     for (let i = 0; i < myCart.length; i++) {
         saldo += Number(myCart[i].product.price);
-        }
+    }
     return(
         <Main>
-            <Title>Meu carrinho</Title>
+            <FirstTitle>Meu carrinho</FirstTitle>
             {myCart.length !== 0 ? (
                 myCart.map((carrinho, i) => (
                     <Product key={i}>
@@ -43,7 +43,7 @@ export default function Cart(){
                     <AlignItems>
                         <Title>{carrinho.product.title}</Title>
                         <Description>{carrinho.product.color} - {carrinho.product.capacity}</Description>
-                        <Price>{carrinho.product.price}</Price>
+                        <Price>R$ {carrinho.product.price}</Price>
                     </AlignItems>
                     <Icon>
                         <IoTrashOutline id={carrinho._id} onClick={() => deleteProduct(carrinho._id)}/>
@@ -51,17 +51,17 @@ export default function Cart(){
                 </Product>
                 ))
             ) : (
-                <>
+                <Container>
                 <MainTitle>Seu carrinho está vazio</MainTitle>
                     <Link to="/">
                     <Button>Voltar para a página inicial</Button>
                     </Link>
-                </>
+                </Container>
             )}
             <TotalFooter>
                 <AlignItems>
                     <SubTitle>Total price</SubTitle>
-                    <Price>R${saldo}</Price>
+                    <Price>R$ {saldo}.00</Price>
                 </AlignItems>
             <Button onClick={goToCheckOut}>Finalizar compra<IoArrowForward/></Button>
             </TotalFooter>

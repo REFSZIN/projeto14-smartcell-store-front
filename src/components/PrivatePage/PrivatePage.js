@@ -1,19 +1,14 @@
-import "./style.js";
 import { Link } from "react-router-dom";
 import {useContext} from 'react';
 import UserContext from '../../UserContext.js';
 import { Container, Title, Button } from "./style.js"
-import React, {useEffect} from 'react'
+import React from 'react';
+import Header from "../Header/Header.js";
 
 export default function PrivatePage({children}){
+    const {data} = useContext(UserContext);
 
-    const {token} = useContext(UserContext);
-    useEffect(() => {
-
-    }, []);
-
-
-    if(token !== '' && token !== undefined && token !== null){
+    if(data){
         return(
             <>
                 {children}
@@ -22,8 +17,12 @@ export default function PrivatePage({children}){
     } else {
         return (
             <Container>
-                    <Title>Acesso negado, faça login novamente.</Title>
+                <Header />
+                    <Title>Acesso negado, faça login para finalizar a compra.</Title>
                     <Link to='/'>
+                            <Button>Voltar para página inicial</Button>
+                    </Link>
+                    <Link to='/login'>
                             <Button>Voltar para página de login</Button>
                     </Link>
             </Container>
