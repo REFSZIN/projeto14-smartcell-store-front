@@ -6,25 +6,26 @@ const Main = styled.main`
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 50px;
     position: relative;
-    margin-top: 150px;
+    margin-top: 100px;
 `;
 
 const Title = styled.h4`
     font-size: 24px;
     color: #ffffff;
     font-weight: 600;
-    margin-bottom: 30px;
+    word-break: normal;
+    line-height: 28px;
 `;
 
 const Return = styled.h6`
     color: #ffffff;
     font-size: 14px;
     font-weight: 200;
+    margin-top: 20px;
 `;
 
 const Titles = styled.div`
@@ -50,16 +51,17 @@ const Price = styled.h5`
 `;
 export const PriceFinal = styled.h5`
     color: #ffffff;
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 30px;
 `;
 
 const Form = styled.form`
     display: flex;
-    width: 80%;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: fit-content;
     margin-bottom: 50px;
 `;
@@ -67,7 +69,7 @@ export const Titlee = styled.h4`
     font-size: 24px;
     color: #ffffff;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 `;
 const Input = styled.input`
     width: 100%;
@@ -104,29 +106,34 @@ const Span = styled.span`
 
 const Select = styled.select`
     width: 100%;
-    height: 150px;
+    height: 60px;
     background-color: var(--color-dark-grey);
     border-radius: 30px;
     border: 1px solid var(--color-dark-grey);
     color: #ffffff;
     font-size: 16px;
     font-weight: 200;
-    padding: 20px;
+    padding-left: 20px;
     margin-bottom: 30px;
 `;
 
 const MainButton = styled.button`
-    width: 60%;
-    height: 150px;
+    width: 50%;
+    height: 60px;
     background-color: #ffffff;
     border-radius: 30px;
     border: 1px solid #ffffff;
     color: var(--color-dark-grey);
     font-size: 20px;
     font-weight: 400;
-    padding: 20px;
     margin-bottom: 30px;
     margin-top: 10px;
 `;
 
-export {Main, Title, SubTitle, Price, Button, Titles, Return, Form, Input, Span, Select, MainButton};
+const Align = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+`
+
+export {Main, Title, SubTitle, Price, Button, Titles, Return, Form, Input, Span, Select, MainButton, Align};

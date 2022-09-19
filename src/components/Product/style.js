@@ -1,72 +1,59 @@
 import styled from "styled-components";
 
-const Main = styled.main`
+export const Main = styled.main`
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     padding: 50px;
-    position: relative;
+    margin-top: 100px;
 `;
-
-const Title = styled.h4`
-    font-size: 24px;
-    color: #ffffff;
-    font-weight: 600;
-    position: absolute;
-    top: 150px;
-    left: 30px;
-`;
-
-const TotalFooter = styled.div`
-    width: 100%;
-    height: 130px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: var(--color-menu);
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-top: 1px solid var(--color-light-grey);
-    display: flex;
-    justify-content: space-between;
-    padding: 35px;
-`;
-
-const AlignItems = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-`;
-
-const SubTitle = styled.h6`
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 200;
-`;
-
-const Price = styled.h5`
+export const Price = styled.h5`
     color: #ffffff;
     font-size: 32px;
     font-weight: 500;
 `;
-
-const Button = styled.button`
-    background-color: #ffffff;
-    color: #000000;
-    font-size: 16px;
-    font-weight: 400;
+export const Image = styled.img`
+    width: 400px;
+    height: 400px;
+    border: 24px solid var(--color-light-grey);
     border-radius: 30px;
-    width: 250px;
-    border: 1px solid var(--color-dark-grey);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: var(--color-light-grey);
 `;
-
-
-export {Main, Title, TotalFooter, AlignItems, SubTitle, Price, Button};
+export const Title = styled.h5`
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 500;
+    word-break: normal;
+    line-height: 26px;
+    margin-top: 32px;
+`;
+export const AlignItems = styled.div`
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-right: 50px;
+    margin-top: 32px;
+`;
+export const Description = styled.h6`
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 12px;
+`;
+export const Button = styled.button`
+    width: 80%;
+    color: var(--color-dark-grey);
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    margin-top: 30px;
+    height: 60px;
+    font-weight: 400;
+    font-size: 18px;
+`;
