@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Main = styled.main`
+export const Main = styled.main`
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -10,18 +10,24 @@ const Main = styled.main`
     justify-content: center;
     padding: 50px;
     position: relative;
+    margin-top: 150px;
+    padding-bottom: 120px;
 `;
 
-const Title = styled.h4`
-    font-size: 24px;
+export const AlignItems = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 50px;
+`;
+export const Title = styled.h5`
     color: #ffffff;
-    font-weight: 600;
-    position: absolute;
-    top: 150px;
-    left: 30px;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 10px;
 `;
-
-const TotalFooter = styled.div`
+export const TotalFooter = styled.div`
     width: 100%;
     height: 130px;
     position: fixed;
@@ -36,26 +42,21 @@ const TotalFooter = styled.div`
     padding: 35px;
 `;
 
-const AlignItems = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-`;
 
-const SubTitle = styled.h6`
+
+export const SubTitle = styled.h6`
     color: #ffffff;
     font-size: 12px;
     font-weight: 200;
 `;
 
-const Price = styled.h5`
+export const Price = styled.h5`
     color: #ffffff;
     font-size: 32px;
     font-weight: 500;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
     background-color: #ffffff;
     color: #000000;
     font-size: 16px;
@@ -69,4 +70,52 @@ const Button = styled.button`
 `;
 
 
-export {Main, Title, TotalFooter, AlignItems, SubTitle, Price, Button};
+export const Product = styled.div`
+    width: 100%;
+    height: 200px;
+    border-radius: 50px;
+    border: 1px solid var(--color-dark-grey);
+    background-color: var(--color-dark-grey);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    padding-right: 5px;
+    position: relative;
+    margin-bottom: 30px;
+`;
+
+export const Image = styled.img`
+    width: 150px;
+    height: 150px;
+    border: 16px solid var(--color-light-grey);
+    border-radius: 30px;
+    background-color: var(--color-light-grey);
+    margin-right: 20px;
+`;
+
+
+
+
+
+export const Description = styled.h6`
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 200;
+`;
+
+
+
+export const Icon = styled.div`
+    font-size: 24px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+`;
+
+export const MainTitle = styled.h5`
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 200;
+`;
+

@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 const Main = styled.main`
     width: 100%;
-    height: 100vh;
+    height: fit-content-height;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     position: relative;
-    margin-top: 200px;
-    margin-bottom: 150px;
+    margin-top: 150px;
 `;
 
 const Title = styled.h4`
@@ -33,7 +33,6 @@ const Titles = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 350px;
 `;
 
 const SubTitle = styled.h6`
@@ -49,18 +48,27 @@ const Price = styled.h5`
     font-size: 32px;
     font-weight: 500;
 `;
+export const PriceFinal = styled.h5`
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 500;
+`;
 
 const Form = styled.form`
     display: flex;
-    width: 100%;
+    width: 80%;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 20px;
+    align-items: center;
+    height: fit-content;
     margin-bottom: 50px;
 `;
-
+export const Titlee = styled.h4`
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 10px;
+`;
 const Input = styled.input`
     width: 100%;
     height: 58px;
@@ -77,7 +85,6 @@ const Input = styled.input`
     }
     margin-bottom: 13px;
 `;
-
 
 const Button = styled.button`
     width: 100%;
@@ -109,7 +116,7 @@ const Select = styled.select`
 `;
 
 const MainButton = styled.button`
-    width: 100%;
+    width: 60%;
     height: 150px;
     background-color: #ffffff;
     border-radius: 30px;
@@ -119,6 +126,7 @@ const MainButton = styled.button`
     font-weight: 400;
     padding: 20px;
     margin-bottom: 30px;
+    margin-top: 10px;
 `;
 
 export {Main, Title, SubTitle, Price, Button, Titles, Return, Form, Input, Span, Select, MainButton};

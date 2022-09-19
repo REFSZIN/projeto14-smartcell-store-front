@@ -10,9 +10,8 @@ const Main = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    margin-bottom: 80px;
     padding: 0 30px;
-    z-index: 10;
+    z-index: 1;
 `;
 
 const Title = styled.h3`
