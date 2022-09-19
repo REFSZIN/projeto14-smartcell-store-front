@@ -1,59 +1,72 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+const Main = styled.main`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     padding: 50px;
-    margin-top: 100px;
+    position: relative;
 `;
-export const Price = styled.h5`
+
+const Title = styled.h4`
+    font-size: 24px;
     color: #ffffff;
-    font-size: 32px;
-    font-weight: 500;
+    font-weight: 600;
+    position: absolute;
+    top: 150px;
+    left: 30px;
 `;
-export const Image = styled.img`
-    width: 400px;
-    height: 400px;
-    border: 24px solid var(--color-light-grey);
-    border-radius: 30px;
-    background-color: var(--color-light-grey);
+
+const TotalFooter = styled.div`
+    width: 100%;
+    height: 130px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-menu);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-top: 1px solid var(--color-light-grey);
+    display: flex;
+    justify-content: space-between;
+    padding: 35px;
 `;
-export const Title = styled.h5`
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 500;
-    word-break: normal;
-    line-height: 26px;
-    margin-top: 32px;
-`;
-export const AlignItems = styled.div`
-    width: 80%;
-    height: 90%;
+
+const AlignItems = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
-    margin-right: 50px;
-    margin-top: 32px;
 `;
-export const Description = styled.h6`
+
+const SubTitle = styled.h6`
     color: #ffffff;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 200;
-    margin-bottom: 12px;
 `;
-export const Button = styled.button`
-    width: 80%;
-    color: var(--color-dark-grey);
-    border: 1px solid #ffffff;
-    border-radius: 30px;
-    margin-top: 30px;
-    height: 60px;
+
+const Price = styled.h5`
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 500;
+`;
+
+const Button = styled.button`
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
     font-weight: 400;
-    font-size: 18px;
+    border-radius: 30px;
+    width: 250px;
+    border: 1px solid var(--color-dark-grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
+
+
+export {Main, Title, TotalFooter, AlignItems, SubTitle, Price, Button};
