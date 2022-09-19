@@ -11,20 +11,19 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
+    font-family: var(--font-body);
     color: #ffffff;
-    font-weight: 200;
+    font-weight: 400;
     font-size: 23px;
     text-align: center;
-    word-break: normal;
-    margin-bottom: 20px;
 `;
 
 const Button = styled.button`
-    width: 50vw;
+    width: 80vw;
     height: 45px;
     background-color: #ffffff;
-    color: var(--color-dark-grey);
-    border-radius: 30px;
+    color: var(--color-button);
+    border-radius: 5px;
     border: 1px solid #ffffff;
     font-size: 20px;
     font-weight: 400;
