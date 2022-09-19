@@ -11,6 +11,10 @@ export default function Product(){
     const navigate = useNavigate();
     const [product, setProduct] = useState({});
 
+    function backHome(){
+        navigate('/')
+    }
+
     useEffect(() => {
         getProducts();
         products.forEach((item) => {
@@ -21,10 +25,6 @@ export default function Product(){
         })
         console.log(product)
     }, []);
-
-    function backHome(){
-        navigate('/')
-    }
 
     return(
         <>
