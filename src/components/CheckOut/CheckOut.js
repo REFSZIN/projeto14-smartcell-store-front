@@ -1,5 +1,5 @@
 import "./style.js";
-import {Main, Title, SubTitle,  Button, Titles, Return, Form, Input, Span, Select, MainButton,PriceFinal,Titlee, Align} from "./style.js";
+import {Main, Title, SubTitle,  Button, Titles, Return, Form, Input, Span, Select, MainButton,PriceFinal,Titlee} from "./style.js";
 import { AlignItems, Price,Image,Description,Icon,MainTitle,Product} from "../Cart/style.js";
 import {useNavigate, Link} from "react-router-dom";
 import {IoArrowBack} from "react-icons/io5";
@@ -7,18 +7,28 @@ import React, {useEffect} from 'react'
 import UserContext from "../../UserContext";
 import {useContext} from "react";
 import Loader from '../Loader/Loader.js';
+import {IoTrashOutline} from "react-icons/io5";
 
 export default function CheckOut(){
     const navigate = useNavigate();
     const {myCart,getMyCart,load,loader,setLoader,setLoad,payMethod,setPayMethod,
             state,city,district,address,number,cep,setAdress,setNumber,setDistrict,
-            setCity,setState,setCep,postCheckOut,setPrice,price} = useContext(UserContext);
+            setCity,setState,setCep,postCheckOut,deleteMyCart,setPrice,price} = useContext(UserContext);
     useEffect(() => {
         getMyCart();
         setLoad(0);
         setLoader(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [getMyCart]);
+
+    function deleteProduct(props){
+        let result = window.confirm('Tem certeza de que deseja excluir?');
+        let message = result ?"DELETADO":'MANTIDO';
+        alert(message);
+        if(message === "DELETADO"){
+            deleteMyCart(props);
+            getMyCart();
+    }}
 
     function handleForm(event){
         event.preventDefault();
@@ -53,8 +63,11 @@ export default function CheckOut(){
                         <AlignItems>
                             <Title>{carrinho.product.title}</Title>
                             <Description>{carrinho.product.color} - {carrinho.product.capacity}</Description>
-                            <Price>R$ {carrinho.product.price}</Price>
+                            <Price>{carrinho.product.price}</Price>
                         </AlignItems>
+                        <Icon>
+                            <IoTrashOutline id={carrinho._id} onClick={() => deleteProduct(carrinho._id)}/>
+                        </Icon>
                     </Product>
                     ))
                 ) : (
@@ -84,7 +97,6 @@ export default function CheckOut(){
                     <Input placeholder="CEP"  type='text' name='cep' disabled={load} required onChange={(e) => setCep(e.target.value)} value={cep}></Input>
                 </Span>
                 <SubTitle>Forma de Pagamento</SubTitle>
-                <PriceFinal>Valor Total: R$ {price}.00</PriceFinal>
                 <Select type='text' name='city' value={payMethod} disabled={load} required onChange={(e) => setPayMethod(e.target.value)}>
                     <option>Cartão de Crédito</option>
                     <option>Cartão de Débito</option>
@@ -92,9 +104,8 @@ export default function CheckOut(){
                     <option>PIX</option>
                     <option>PayPal</option>
                 </Select>
-                <Align>
-                    <MainButton disabled={load} type="submit">{ !loader ? <Loader/> :`Finalizar Compra`}</MainButton>
-                </Align>
+                <PriceFinal>R${price}</PriceFinal>
+                <MainButton disabled={load} type="submit">{ !loader ? <Loader/> :`Finalizar Compra`}</MainButton>
             </Form>
             </Main>
         </>

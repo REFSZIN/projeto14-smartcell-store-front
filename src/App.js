@@ -7,9 +7,8 @@ import SignInPage from "./Pages/SignInPage.js";
 import StorePage from "./Pages/StorePage.js";
 import SignUpPage from "./Pages/SignUpPage.js";
 import CartPage from "./Pages/CartPage.js";
-import Product from "./components/Product/Product.js";
+import ProductPage from "./Pages/ProductPage.js";
 import CheckOutPage from "./Pages/CheckOutPage.js";
-import PrivatePage from "./components/PrivatePage/PrivatePage.js";
 
 export default function App (){
     return (
@@ -22,13 +21,9 @@ export default function App (){
                         <Route path="/login" element={<SignInPage />}/>
                         <Route path="/cadastro" element={<SignUpPage />}/>
                         <Route path="/carrinho" element={<CartPage />}/>
-                        <Route path="/product/:productId" element={<Product />}/>
-                            <Route path="/checkout" element={
-                                <PrivatePage>
-                                    <CheckOutPage/>
-                                </PrivatePage>
-                        }/>
-                    </Routes>
+                        <Route path="/product" element={<ProductPage />}/>
+                        <Route path="/checkout" element={<CheckOutPage/>}/>
+                    </Routes> 
                 </BrowserRouter>
             </UserProvider>
         </UserContext.Provider>

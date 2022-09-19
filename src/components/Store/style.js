@@ -61,42 +61,11 @@ const Description = styled.h4`
     margin-top: 20px;
 `;
 
-const colors = {
-    available: "#ffffff",
-    selected: "#03ac00",
-    textAvailable: "var(--color-dark-grey)",
-    textSelected: "#ffffff"
-};
-
-const Value = styled.h6`
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 16px;
-    color: ${props => {
-        if(props.type === 'positive'){
-            return colors.positive;
-        } if (props.type === 'negative'){
-            return colors.negative;
-        }
-    }};
-`;
-
 const AddCart = styled.button`
     width: 100%;
     height: 40px;
-    background-color: ${props => {
-        if(props.type === ''){
-            return colors.available
-        } if (props.type === 'selected'){
-            return colors.selected
-        }
-    }};
-    color: ${props => {
-        if(props.type === ''){
-            return colors.textAvailable
-        } if (props.type === 'selected'){
-            return colors.textSelected
-        }}};
+    background-color: #ffffff;
+    color: var(--color-dark-grey);
     font-weight: 400;
     font-size: 18px;
     border-radius: 50px;
